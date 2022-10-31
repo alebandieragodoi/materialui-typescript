@@ -6,7 +6,11 @@ export const AppRoutes = () => {
     <Routes>
       <Route
         path="/pagina-inicial"
-        element={<Button>Meu primeiro Button da MUI</Button>}
+        element={
+          <Button variant="contained" color="primary">
+            Teste
+          </Button>
+        }
       />
 
       <Route path="*" element={<Navigate to="/pagina-inicial" />} />
