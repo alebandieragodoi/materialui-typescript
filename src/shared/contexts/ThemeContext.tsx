@@ -20,7 +20,11 @@ export const useAppThemeContext = () => {
   return useContext(ThemeContext);
 };
 
-export const AppThemeProvider: FC<{ children: React.ReactNode }> = ({
+interface IAppThemeProviderProps {
+  children: React.ReactNode;
+}
+
+export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({
   children,
 }) => {
   const [themeName, setThemeName] = useState<"light" | "dark">("light");
