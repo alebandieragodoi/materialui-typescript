@@ -4,7 +4,6 @@ import {
   useContext,
   useMemo,
   useState,
-  FC,
 } from "react";
 import { Box, ThemeProvider } from "@mui/material";
 import { DarkTheme, LightTheme } from "../themes";
