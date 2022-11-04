@@ -11,7 +11,42 @@ import {
   Icon,
   useMediaQuery,
 } from "@mui/material";
+import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 import { useDrawerContext } from "../../contexts";
+
+interface IListItemLinkProps {
+  to: string;
+  icon: string;
+  label: string;
+  onClick: () => void | undefined;
+}
+
+const ListItemLink: React.FC<IListItemLinkProps> = ({
+  to,
+  icon,
+  label,
+  onClick,
+}) => {
+  const navigate = useNavigate();
+
+  const resolvePath = useResolvedPath(to);
+
+  const match = useMatch({ path: resolvePath.pathname, end: false });
+
+  const handleClick = () => {
+    navigate(to);
+    onClick?.(); //se não for undefined execute.
+  };
+  return (
+    <ListItemButton selected={!!match} onClick={handleClick}>
+      <ListItemIcon>
+        <Icon>{icon}</Icon>
+      </ListItemIcon>
+
+      <ListItemText primary={label}></ListItemText>
+    </ListItemButton>
+  );
+};
 
 interface IMenuLateralProps {
   children: React.ReactNode;
@@ -22,7 +57,7 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
 
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const { isDrawerOpen, toggleDrawerOpen } = useDrawerContext();
+  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
 
   return (
     <>
@@ -54,13 +89,22 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
 
           <Box flex={1}>
             <List component="nav">
-              <ListItemButton>
-                <ListItemIcon>
-                  <Icon>home</Icon>
-                </ListItemIcon>
+              {/* <ListItemLink
+                icon="home"
+                to="/pagina-inicial"
+                label="Página inicial"
+                onClick={toggleDrawerOpen}
+              /> */}
 
-                <ListItemText primary="Página Inicial"></ListItemText>
-              </ListItemButton>
+              {drawerOptions.map((drawerOptions) => (
+                <ListItemLink
+                  key={drawerOptions.path}
+                  icon={drawerOptions.icon}
+                  to="/pagina-inicial"
+                  label={drawerOptions.label}
+                  onClick={toggleDrawerOpen}
+                />
+              ))}
             </List>
           </Box>
         </Box>
