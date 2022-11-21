@@ -12,7 +12,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
-import { useDrawerContext } from "../../contexts";
+import { useAppThemeContext, useDrawerContext } from "../../contexts";
 
 interface IListItemLinkProps {
   to: string;
@@ -59,6 +59,8 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
 
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
 
+  const { toggleTheme } = useAppThemeContext();
+
   return (
     <>
       <Drawer
@@ -89,13 +91,6 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
 
           <Box flex={1}>
             <List component="nav">
-              {/* <ListItemLink
-                icon="home"
-                to="/pagina-inicial"
-                label="Página inicial"
-                onClick={toggleDrawerOpen}
-              /> */}
-
               {drawerOptions.map((drawerOptions) => (
                 <ListItemLink
                   key={drawerOptions.path}
@@ -105,6 +100,18 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
                   onClick={toggleDrawerOpen}
                 />
               ))}
+            </List>
+          </Box>
+
+          <Box>
+            <List component="nav">
+              <ListItemButton onClick={toggleTheme}>
+                <ListItemIcon>
+                  <Icon>dark_mode</Icon>
+                </ListItemIcon>
+
+                <ListItemText primary="Alterar tema"></ListItemText>
+              </ListItemButton>
             </List>
           </Box>
         </Box>
