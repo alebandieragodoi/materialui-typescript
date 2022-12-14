@@ -83,7 +83,7 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
           >
             <Avatar
               sx={{ height: theme.spacing(12), width: theme.spacing(12) }}
-              src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t1.6435-1/89617674_10157461845747961_5895838878668947456_n.jpg?stp=dst-jpg_p160x160&_nc_cat=108&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=3mZ11Rx4bQAAX989ASi&_nc_ht=scontent.fcpq4-1.fna&oh=00_AfArGRYHFROATY6KzCehzusIXqQy5vnJCseFTHnbFEWY6g&oe=638B762E"
+              src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t1.6435-9/89617674_10157461845747961_5895838878668947456_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEZREM12HX-JRL-WUdjCL6U48kHnlnbqR3jyQeeWdupHdkW44pRjQnNVqPACSvizyI&_nc_ohc=nqHXPeJvEKUAX9HvoDl&_nc_ht=scontent.fcpq4-1.fna&oh=00_AfAP1lmLBre9N5uOPmC5MCV0ixWiM-WNeHL4uT2znhAwZA&oe=63C1641E"
             />
           </Box>
 
@@ -95,7 +95,7 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
                 <ListItemLink
                   key={drawerOptions.path}
                   icon={drawerOptions.icon}
-                  to="/pagina-inicial"
+                  to={drawerOptions.path}
                   label={drawerOptions.label}
                   onClick={toggleDrawerOpen}
                 />

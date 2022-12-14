@@ -23,11 +23,11 @@ interface IFerramentasDaListagem {
 
 export const FerramentasDaListagem: React.FC<IFerramentasDaListagem> = ({
   textoDaBusca = "",
-  mostrarInputBusca = false,
   aoMudarTextoDeBusca,
+  mostrarInputBusca,
+  aoClicarEmNovo,
   textoBotaoNovo = "Novo",
   mostrarBotaoNovo = true,
-  aoClicarEmNovo,
 }) => {
   const theme = useTheme();
 
