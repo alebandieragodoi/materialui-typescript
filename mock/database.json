@@ -2,8 +2,27 @@
   "pessoas": [
     {
       "id": 1,
-      "nome": "Alenxadre",
-      "sobrenome": "Godoi"
+      "email": "alexandre@dobesone.com.br",
+      "cidadeId": 100,
+      "nomeCompleto": "Alexandre Godoi"
+    },
+    {
+      "id": 2,
+      "email": "joia@dobesone.com.br",
+      "cidadeId": 100,
+      "nomeCompleto": "Matheus Joia"
+    },
+    {
+      "id": 3,
+      "email": "rodrigo@dobesone.com.br",
+      "cidadeId": 100,
+      "nomeCompleto": "Rodrigo Vulgo Rogérinho"
+    },
+    {
+      "id": 4,
+      "email": "fatrick@dobesone.com.br",
+      "cidadeId": 100,
+      "nomeCompleto": "Fátrick"
     }
   ]
 }

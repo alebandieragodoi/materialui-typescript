@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { DashBoard, ListagemDeCidade } from "../pages";
+import { DashBoard, ListagemDePessoas } from "../pages";
 import { useDrawerContext } from "../shared/contexts";
 
 export const AppRoutes = () => {
@@ -14,9 +14,9 @@ export const AppRoutes = () => {
         label: "Página inicial",
       },
       {
-        icon: "location_city",
-        path: "/cidades",
-        label: "Cidades",
+        icon: "people",
+        path: "/pessoas",
+        label: "Pessoas",
       },
     ]);
   }, []);
@@ -25,7 +25,7 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/pagina-inicial" element={<DashBoard />} />
 
-      <Route path="/cidades" element={<ListagemDeCidade />} />
+      <Route path="/pessoas" element={<ListagemDePessoas />} />
 
       <Route path="*" element={<Navigate to="/pagina-inicial" />} />
     </Routes>
