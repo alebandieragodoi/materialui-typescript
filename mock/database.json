@@ -2,9 +2,9 @@
   "pessoas": [
     {
       "id": 2,
+      "nomeCompleto": "Matheus Joia Teste",
       "email": "joia@dobesone.com.br",
-      "cidadeId": 100,
-      "nomeCompleto": "Matheus Joia"
+      "cidadeId": 100
     },
     {
       "id": 3,
