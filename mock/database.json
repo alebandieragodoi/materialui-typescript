@@ -1,12 +1,6 @@
 {
   "pessoas": [
     {
-      "id": 1,
-      "email": "alexandre@dobesone.com.br",
-      "cidadeId": 100,
-      "nomeCompleto": "Alexandre Godoi"
-    },
-    {
       "id": 2,
       "email": "joia@dobesone.com.br",
       "cidadeId": 100,
@@ -53,12 +47,6 @@
       "email": "fagner@dobesone.com.br",
       "cidadeId": 100,
       "nomeCompleto": "Fagner Muso"
-    },
-    {
-      "id": 10,
-      "email": "leandro@dobesone.com.br",
-      "cidadeId": 100,
-      "nomeCompleto": "Leandrão"
     },
     {
       "id": 11,
