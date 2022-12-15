@@ -1,5 +1,6 @@
+import { FormHandles } from "@unform/core";
 import { Form } from "@unform/web";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { FerramentasDeDetalhe } from "../../shared/components";
@@ -7,14 +8,18 @@ import { VTextField } from "../../shared/forms";
 import { LayoutBaseDePagina } from "../../shared/layouts";
 import { PessoasService } from "../../shared/services/api/pessoas/PessoasService";
 
+interface IFormData {
+  email: string;
+  cidadeId: string;
+  nomeCompleto: string;
+}
+
 export const DetalheDePessoas: React.FC = () => {
   const { id } = useParams<"id">();
 
   const navigate = useNavigate();
 
-  const handleSave = () => {
-    console.log("save");
-  };
+  const formRef = useRef<FormHandles>(null);
 
   const [isLoading, setIsLoading] = useState(false);
   const [nome, setNome] = useState("");
@@ -36,6 +41,10 @@ export const DetalheDePessoas: React.FC = () => {
       });
     }
   }, [id]);
+
+  const handleSave = (dados: IFormData) => {
+    console.log(dados);
+  };
 
   const handleDelete = (id: number) => {
     if (window.confirm("Confirma exclusão do registro?")) {
@@ -59,8 +68,8 @@ export const DetalheDePessoas: React.FC = () => {
           mostrarBotaoSalvarEFechar
           mostrarBotaoNovo={id !== "nova"}
           mostrarBotaoApagar={id !== "nova"}
-          aoClicarEmSalvar={handleSave}
-          aoClicarEmSalvarEFechar={handleSave}
+          aoClicarEmSalvar={() => formRef.current?.submitForm()}
+          aoClicarEmSalvarEFechar={() => formRef.current?.submitForm()}
           aoClicarEmApagar={() => handleDelete(Number(id))}
           aoClicarEmNovo={() => navigate("/pessoas/detalhe/nova")}
           aoClicarEmVoltar={() => navigate("/pessoas")}
@@ -70,7 +79,7 @@ export const DetalheDePessoas: React.FC = () => {
       {/* {isLoading && <LinearProgress variant="indeterminate" />}
       Detalhe */}
 
-      <Form onSubmit={(dados) => console.log(dados)}>
+      <Form ref={formRef} onSubmit={handleSave}>
         <VTextField name="nomeCompleto" />
 
         <button type="submit">submit</button>
