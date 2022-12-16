@@ -72,5 +72,19 @@
       "cidadeId": "123",
       "id": 14
     }
+  ],
+  "cidades": [
+    {
+      "id": 1,
+      "nome": "Rio Claro"
+    },
+    {
+      "id": 2,
+      "nome": "Tupã"
+    },
+    {
+      "nome": "teste",
+      "id": 3
+    }
   ]
 }
