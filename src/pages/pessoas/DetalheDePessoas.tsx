@@ -13,7 +13,6 @@ interface IFormData {
   cidadeId: number;
   nomeCompleto: string;
 }
-
 const formValidationSchema: yup.SchemaOf<IFormData> = yup.object().shape({
   cidadeId: yup.number().required(),
   email: yup.string().required().email(),
@@ -184,6 +183,7 @@ export const DetalheDePessoas: React.FC = () => {
                   label="Cidade"
                   name="cidadeId"
                   disabled={isLoading}
+                  type="number"
                 />
               </Grid>
             </Grid>
