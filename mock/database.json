@@ -4,7 +4,7 @@
       "id": 2,
       "nomeCompleto": "Matheus Joia Teste",
       "email": "joia@dobesone.com.br",
-      "cidadeId": 100
+      "cidadeId": 1
     },
     {
       "id": 3,
@@ -71,6 +71,12 @@
       "email": "cris@gmail.com",
       "cidadeId": "123",
       "id": 14
+    },
+    {
+      "id": 15,
+      "nomeCompleto": "Alexandre Godoi",
+      "email": "alexandre@dobesone.com.br",
+      "cidadeId": 2
     }
   ],
   "cidades": [
