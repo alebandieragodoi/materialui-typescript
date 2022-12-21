@@ -92,5 +92,8 @@
       "nome": "teste",
       "id": 3
     }
-  ]
+  ],
+  "auth": {
+    "accessToken": "aaaaaaaaaa.bbbbbbbbbb.cccccccccc"
+  }
 }
