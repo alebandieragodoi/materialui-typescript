@@ -2,6 +2,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -15,6 +16,8 @@ interface IThemeContextData {
 
 const ThemeContext = createContext({} as IThemeContextData);
 
+const LOCAL_STORAGE_KEY__THEME = "APP_THEME";
+
 export const useAppThemeContext = () => {
   return useContext(ThemeContext);
 };
@@ -26,7 +29,27 @@ interface IAppThemeProviderProps {
 export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({
   children,
 }) => {
-  const [themeName, setThemeName] = useState<"light" | "dark">("light");
+  const getTheme = (): "light" | "dark" => {
+    const accessTheme = localStorage.getItem(LOCAL_STORAGE_KEY__THEME);
+
+    if (accessTheme) {
+      setThemeName(JSON.parse(accessTheme));
+    } else {
+      setThemeName("dark");
+    }
+
+    return themeName;
+  };
+
+  const [themeName, setThemeName] = useState<"light" | "dark">("dark");
+
+  useEffect(() => {
+    getTheme();
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY__THEME, JSON.stringify(themeName));
+  }, [themeName]);
 
   const toggleTheme = useCallback(() => {
     setThemeName((oldThemeName) =>
