@@ -1,3 +1,4 @@
+import { Environment } from "../../../environment";
 import { Api } from "../../axios-config";
 
 interface IAuth {
@@ -8,10 +9,12 @@ const auth = async (
   password: string
 ): Promise<IAuth | Error> => {
   try {
-    const { data } = await Api.get("/auth", { data: { email, password } });
+    const { data } = await Api.get(Environment.URL_BASE + "/auth", {
+      data: { email, password },
+    });
 
     if (data) {
-      return data;
+      return data[0];
     }
 
     return new Error("Erro no login.");

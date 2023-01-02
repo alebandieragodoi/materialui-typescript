@@ -8,9 +8,9 @@
     },
     {
       "id": 3,
+      "nomeCompleto": "Rodrigo Vulgo Rogérinho",
       "email": "rodrigo@dobesone.com.br",
-      "cidadeId": 100,
-      "nomeCompleto": "Rodrigo Vulgo Rogérinho"
+      "cidadeId": 2
     },
     {
       "id": 4,

@@ -49,7 +49,10 @@ export const AutoCompleteCidade: React.FC<TAutoCompleteCidadeProps> = ({
           console.log(result);
 
           setOpcoes(
-            result.data.map((cidade) => ({ id: cidade.id, label: cidade.nome }))
+            result.data.map((cidade) => ({
+              id: parseInt(cidade.id as unknown as string), //gambi, pois mock online criou id como string e aqui precisa ser number.
+              label: cidade.nome,
+            }))
           );
         }
       });

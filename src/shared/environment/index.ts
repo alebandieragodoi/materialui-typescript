@@ -17,5 +17,7 @@ export const Environment = {
   /**
    * URL base da aplicação.
    */
-  URL_BASE: "http://localhost:3333",
+  //URL_BASE: "http://localhost:3333",
+
+  URL_BASE: "https://63aacc2b7d7edb3ae6316015.mockapi.io/api/v1",
 };
