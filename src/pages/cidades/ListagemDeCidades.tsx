@@ -53,8 +53,6 @@ export const ListagemDeCidades: React.FC = () => {
           alert(result.message);
           return;
         } else {
-          console.log(result);
-
           setTotalCount(result.totalCount);
           setRows(result.data);
         }

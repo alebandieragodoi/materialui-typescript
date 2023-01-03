@@ -29,23 +29,15 @@ interface IAppThemeProviderProps {
 export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({
   children,
 }) => {
-  const getTheme = (): "light" | "dark" => {
-    const accessTheme = localStorage.getItem(LOCAL_STORAGE_KEY__THEME);
+  const [themeName, setThemeName] = useState<"light" | "dark">(() => {
+    const themaNaStorage = localStorage.getItem(LOCAL_STORAGE_KEY__THEME);
 
-    if (accessTheme) {
-      setThemeName(JSON.parse(accessTheme));
+    if (themaNaStorage) {
+      return JSON.parse(themaNaStorage);
     } else {
-      setThemeName("dark");
+      return "dark";
     }
-
-    return themeName;
-  };
-
-  const [themeName, setThemeName] = useState<"light" | "dark">("dark");
-
-  useEffect(() => {
-    getTheme();
-  }, []);
+  });
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY__THEME, JSON.stringify(themeName));

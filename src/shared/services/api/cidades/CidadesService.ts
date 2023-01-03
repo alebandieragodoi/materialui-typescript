@@ -28,8 +28,6 @@ const getAll = async (
     const { data, headers } = await Api.get(urlRelativa);
 
     if (data) {
-      console.log(data);
-
       return {
         data,
         totalCount: Number(headers["x-total-count"] || data.length),
